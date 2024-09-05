@@ -1,25 +1,4 @@
 
-src/main/java/com/example/estudo
-├── controller
-│   └── MedicoController.java
-├── domain
-│   └── Medico.java
-├── dto
-│   ├── MedicoDTO.java
-│   ├── RespostaLista.java
-│   ├── RespostaPadrao.java
-│   └── RespostaUpdate.java
-├── repository
-│   └── MedicoRepository.java
-├── services
-│   └── MedicoService.java
-├── config
-│   └── WebSecurityConfig.java
-├── exception
-│   └── CustomExceptionHandler.java
-└── util
-    └── DateUtils.java
-
 Descrição dos Pacotes
 controller
 

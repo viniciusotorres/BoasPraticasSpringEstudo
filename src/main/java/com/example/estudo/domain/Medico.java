@@ -15,6 +15,9 @@ import org.springframework.boot.autoconfigure.web.WebProperties;
 @Table(name = "medicos")
 public class Medico {
 
+    /**
+     * Identificador do médico.
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

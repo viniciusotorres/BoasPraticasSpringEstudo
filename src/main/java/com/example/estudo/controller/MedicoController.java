@@ -1,9 +1,9 @@
 package com.example.estudo.controller;
 
 import com.example.estudo.dto.MedicoDTO;
-import com.example.estudo.dto.RespostaLista;
+import com.example.estudo.dto.RespostaListaMedicos;
 import com.example.estudo.dto.RespostaPadrao;
-import com.example.estudo.dto.RespostaUpdate;
+import com.example.estudo.dto.RespostaUpdateMedico;
 import com.example.estudo.services.MedicoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -38,8 +38,8 @@ public class MedicoController {
      * @return Lista de médicos com status HTTP.
      */
     @GetMapping("/listar")
-    public ResponseEntity<RespostaLista> listarMedicos() {
-        RespostaLista resposta = medicoService.listarMedicos();
+    public ResponseEntity<RespostaListaMedicos> listarMedicos() {
+        RespostaListaMedicos resposta = medicoService.listarMedicos();
         return ResponseEntity.status(resposta.status()).body(resposta);
     }
 
@@ -86,8 +86,8 @@ public class MedicoController {
      * @return Resposta com os dados atualizados e o status HTTP.
      */
     @PutMapping("/atualizar/{id}")
-    public ResponseEntity<RespostaUpdate> atualizarMedico(@PathVariable("id") Long id, @RequestBody MedicoDTO medicoDTO) {
-        RespostaUpdate resposta = medicoService.atualizarMedico(id, medicoDTO);
+    public ResponseEntity<RespostaUpdateMedico> atualizarMedico(@PathVariable("id") Long id, @RequestBody MedicoDTO medicoDTO) {
+        RespostaUpdateMedico resposta = medicoService.atualizarMedico(id, medicoDTO);
         return ResponseEntity.status(resposta.status()).body(resposta);
     }
 }

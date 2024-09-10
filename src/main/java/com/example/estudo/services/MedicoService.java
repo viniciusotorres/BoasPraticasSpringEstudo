@@ -2,9 +2,9 @@ package com.example.estudo.services;
 
 import com.example.estudo.domain.Medico;
 import com.example.estudo.dto.MedicoDTO;
-import com.example.estudo.dto.RespostaLista;
+import com.example.estudo.dto.RespostaListaMedicos;
 import com.example.estudo.dto.RespostaPadrao;
-import com.example.estudo.dto.RespostaUpdate;
+import com.example.estudo.dto.RespostaUpdateMedico;
 import com.example.estudo.repository.MedicoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -55,15 +55,15 @@ public class MedicoService {
      *
      * @return Resposta contendo a lista de médicos e status HTTP.
      */
-    public RespostaLista listarMedicos() {
+    public RespostaListaMedicos listarMedicos() {
         try {
             List<Medico> medicos = medicoRepository.findAll();
             if (medicos.isEmpty()) {
-                return new RespostaLista(medicos, "Nenhum médico cadastrado", 204, "No Content");
+                return new RespostaListaMedicos(medicos, "Nenhum médico cadastrado", 204, "No Content");
             }
-            return new RespostaLista(medicos, "Médicos listados com sucesso", 200, "Success");
+            return new RespostaListaMedicos(medicos, "Médicos listados com sucesso", 200, "Success");
         } catch (Exception e) {
-            return new RespostaLista(null, "Erro ao listar médicos", 500, "Internal Server Error");
+            return new RespostaListaMedicos(null, "Erro ao listar médicos", 500, "Internal Server Error");
         }
     }
 
@@ -132,11 +132,11 @@ public class MedicoService {
      * @param medicoDTO Dados atualizados do médico.
      * @return Resposta contendo dados atualizados e status HTTP.
      */
-    public RespostaUpdate atualizarMedico(Long id, MedicoDTO medicoDTO) {
+    public RespostaUpdateMedico atualizarMedico(Long id, MedicoDTO medicoDTO) {
         try {
             Medico medico = medicoRepository.findById(id).orElse(null);
             if (medico == null) {
-                return new RespostaUpdate(medicoDTO, "Médico não encontrado", 404, "Not Found");
+                return new RespostaUpdateMedico(medicoDTO, "Médico não encontrado", 404, "Not Found");
             }
 
             if (medicoDTO.nome() != null) {
@@ -152,9 +152,9 @@ public class MedicoService {
             }
 
             medicoRepository.save(medico);
-            return new RespostaUpdate(medicoDTO, "Médico atualizado com sucesso", 200, "Success");
+            return new RespostaUpdateMedico(medicoDTO, "Médico atualizado com sucesso", 200, "Success");
         } catch (Exception e) {
-            return new RespostaUpdate(medicoDTO, "Erro ao atualizar médico", 500, "Internal Server Error");
+            return new RespostaUpdateMedico(medicoDTO, "Erro ao atualizar médico", 500, "Internal Server Error");
         }
     }
 }

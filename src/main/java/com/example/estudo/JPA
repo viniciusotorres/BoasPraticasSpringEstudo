@@ -1,0 +1,48 @@
+JPA -> JAVA PERSISTENCE API
+
+SPRING DATA JPA
+- Abstrai a camada de persistência de dados com o banco de dados (JPA)
+
+JPA
+- Abstrai a camada de persistência de dados com o banco de dados (JDBC)
+
+JDBC
+- Abstrai a camada de persistência de dados com o banco de dados
+
+HIBERNATE
+- Implementação da JPA (JPA Provider)
+
+JPA ANOTAÇÕES
+@Entity
+- Define a classe como uma entidade
+
+@Table
+- Define a tabela que a entidade será mapeada
+
+@Id
+- Define a chave primária
+
+@GeneratedValue
+- Define a estratégia de geração de valor para a chave primária
+
+@Column
+- Define a coluna que o atributo será mapeado
+
+@Temporal
+- Define o tipo de dado que o atributo será mapeado
+
+@OneToMany
+- Define o relacionamento de um para muitos
+
+@ManyToOne
+- Define o relacionamento de muitos para um
+
+@ManyToMany
+- Define o relacionamento de muitos para muitos
+
+@JoinTable
+- Define a tabela de junção para o relacionamento muitos para muitos
+
+@JoinColumn
+- Define a coluna de junção para o relacionamento muitos para um
+
